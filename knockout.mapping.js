@@ -597,7 +597,7 @@
 				case "added":
 					var item = optimizedKeys ? itemsByKey[key.value] : getItemByKey(ko.utils.unwrapObservable(rootObject), key.value, keyCallback);
 					mappedItem = updateViewModel(undefined, item, options, parentName, mappedRootObject, fullPropertyName, parent);
-					if(!hasCreateCallback()) {
+					if(!hasCreateCallback() && !exports.getType(mappedItem) === 'array') {
 						mappedItem = ko.utils.unwrapObservable(mappedItem);
 					}
 
